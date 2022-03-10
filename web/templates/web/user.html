@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="{% static 'web/styles/base.css' %}" />
+	<link rel="stylesheet" href="{% static 'web/styles/user.css' %}" />
+	<title>Codespark | {{ user.username }}</title>
+</head>
+<body>
+    {% include 'web/navbar.html' %}
+    <main>
+        <!-- Add default header (unique for index.html) -->
+        <h1 id="username">
+            {{ user.username }}
+            {% if user.account.publisher %}
+                <abbr title="Editor verificado">🗒</abbr>
+            {% endif %}
+        </h1>
+        {% if user.account.avatar %}
+            <img
+                src="{{ user.profile.path }}"
+                alt="Foto de perfil de {{ user.username }}"
+                id="avatar"
+            />
+        {% else %}
+            <img
+                src="https://avatars.dicebear.com/api/bottts/{{ user.username }}.svg"
+                alt="Perfil do usuário {{ user.username }}"
+                id="avatar"
+            />
+        {% endif %}
+        <!-- If user.username == current_user.username: when hover the avatar, show tip for editing account info -->
+        <p id="bio">
+            {% if user.bio %}
+                {{ user.bio }}
+            {% else %}
+                Não há nenhum conteúdo ainda :(
+            {% endif %}
+        </p>
+        <p id="karma-count">
+            Karma: {{ user.account.karma }}
+        </p>
+        
+        <section id="badges"></section>
+        <!-- Button for editing form that only appears if you're logged in as that user -->
+        <!-- Add default header (unique and cute ones for some pages) -->
+    </main>
+</body>
+</html>

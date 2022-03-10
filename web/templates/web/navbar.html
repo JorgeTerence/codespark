@@ -1,0 +1,25 @@
+{% load static %}
+<header>
+	<a href="{% url 'home' %}">
+		<abbr title="codespark">
+			<img
+				src="{% static 'web/assets/logo-braces.svg' %}"
+				alt="Logo Codespark"
+				id="logo"
+			/>
+		</abbr>
+	</a>
+	<nav>
+		<ul>
+			<li><a href="{% url 'home' %}">Início</a></li>
+			<li><a href="">Assuntos</a></li>
+			<li><a href="">Sobre</a></li>
+			<li><a href="">Aprenda</a></li>
+            {% if user.is_authenticated %}
+			<li><a href="{% url 'user' user.username %}">Conta</a></li>
+            {% else %}
+			<li><a href="{% url 'login' %}">Conta</a></li>
+            {% endif %}
+		</ul>
+	</nav>
+</header>

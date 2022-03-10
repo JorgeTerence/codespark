@@ -1,0 +1,84 @@
+form {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	width: clamp(90%, 80%, 70%);
+}
+
+label, input {
+	font-size: clamp(1em, 1.3em, 1.5em);
+}
+
+input {
+	color: var(--fg);
+	background-color: var(--bg);
+	border: 2px solid var(--dimm);
+	border-radius: 3px;
+	caret-color: var(--highlight);
+	padding: 0.3rem;
+	transition: all 0.5s ease-in-out;
+	outline: none;
+	accent-color: var(--highlight);
+}
+
+input:focus,
+input:hover {
+	background-color: var(--dimm);
+	border: 2px dashed var(--highlight);
+}
+
+input::placeholder {
+	color: var(--fg);
+	filter: brightness(0.6);
+}
+
+input[type='text'],
+input[type='password'],
+input[type='email'] {
+	font-family: var(--mono);
+}
+
+input[type='email']:invalid {
+	color: var(--error);
+	border-color: var(--error);
+}
+
+input:not([type='checkbox']) {
+	width: 100%;
+}
+
+input[type='checkbox'] {
+	transform: scale(1.4);
+	cursor: pointer;
+}
+
+input[type='file'] {
+	font-family: var(--title);
+	color: var(--fg);
+}
+
+input[type='submit'] {
+	margin-left: 1rem;
+	padding: 0.6rem 0.6rem;
+	width: 9ch;
+	font-family: var(--title);
+	border-radius: 4.5ch;
+	transition: all ease 0.5s;
+}
+
+input[type='submit']:hover,
+input[type='submit']:focus {
+	color: var(--bg);
+	background-color: var(--highlight);
+	border: 2px solid var(--highlight-dark);
+	box-shadow: 1px 1px 4px #111;
+	transform: scale(1.05);
+	cursor: pointer;
+}
+
+.field {
+	display: flex;
+	gap: 0.65rem;
+	margin: 0 1rem;
+	align-items: center;
+}

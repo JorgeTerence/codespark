@@ -1,0 +1,9 @@
+# Development
+venv/
+.vscode
+__pycache__
+log.txt
+
+# Static files
+avatars/
+migrations/
