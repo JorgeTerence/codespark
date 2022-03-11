@@ -1,7 +1,7 @@
 # Codespark - a educational network for tech students
 
-![](/home/jorge_terence/Desktop/codespark/media/logo-present.svg)
-
+![Codespark](/media/logo-present.svg)
+   
 ---
 
 ## What is this? :thought_balloon:
