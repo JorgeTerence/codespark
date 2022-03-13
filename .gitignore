@@ -7,3 +7,4 @@ log.txt
 # Static files
 avatars/
 migrations/
+/static/
