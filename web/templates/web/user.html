@@ -1,10 +1,11 @@
 {% load static %}
+{% load sass_tags %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="stylesheet" href="{% static 'web/styles/base.css' %}" />
+	<link rel="stylesheet" href="{% sass_src 'web/scss/main.scss' %}">
 	<link rel="stylesheet" href="{% static 'web/styles/user.css' %}" />
 	<title>Codespark | {{ user.username }}</title>
 </head>
@@ -42,7 +43,7 @@
         <p id="karma-count">
             Karma: {{ user.account.karma }}
         </p>
-        
+
         <section id="badges"></section>
         <!-- Button for editing form that only appears if you're logged in as that user -->
         <!-- Add default header (unique and cute ones for some pages) -->

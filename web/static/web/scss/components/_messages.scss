@@ -1,0 +1,19 @@
+@import "../abstracts/";
+
+$message-levels: ("error": $error, "warning": $warning, "info": $warning, "success": $success);
+
+ul#messages {
+	margin-bottom: 1rem;
+	align-items: center;
+}
+
+@each $level, $color in $message-levels {
+  .message-#{$level} {
+    width: 75%;
+    border: 3px solid $color;
+    background-color: hsla($error, .6);
+    border-radius: 6px;
+    padding: 0.5rem;
+    font-size: 0.75em;
+  }
+}

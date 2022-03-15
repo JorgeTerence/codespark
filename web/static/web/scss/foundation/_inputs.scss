@@ -9,7 +9,7 @@ input {
   caret-color: $highlight;
 
   width: 100%;
-  border: 2px solid $background-dimm;
+  border: 3px solid $background-dimm;
   border-radius: 3px;
   padding: 0.3rem;
   outline: none;
@@ -19,7 +19,8 @@ input {
   &:focus,
   &:hover {
     background-color: $background-dimm;
-    border: 2px dashed $highlight;
+    border-style: dashed;
+    border-color: $highlight;
   }
 
   &::placeholder {
@@ -30,6 +31,7 @@ input {
   @each $field in $avoided-input-fields {
     &:not([type="#{$field}"]) {
       font-family: $monospaced;
+      padding: 0.3rem 0.45rem;
     }
   }
 
@@ -50,6 +52,7 @@ input {
     padding: 0.6rem 0.4rem;
     border-radius: 4.5ch;
     font-family: $title;
+    font-size: 1.2em;
     transition: all ease 0.5s;
 
     &:hover,
@@ -57,7 +60,8 @@ input {
       color: $background;
       background-color: $highlight;
 
-      border: 2px solid $highlight-dark;
+      border-style: solid;
+      border-color: $highlight-dark;
 
       box-shadow: 1px 1px 4px $background-darker;
       transform: scale(1.05);

@@ -1,0 +1,11 @@
+@import "../abstracts/";
+
+h1,
+h2 {
+  font-family: $title;
+  margin: 1.25rem 0;
+}
+
+h1 {
+  font-size: clamp(2.5em, 2.7em, 3.3em);
+}
