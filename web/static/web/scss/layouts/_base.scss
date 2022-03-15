@@ -1,0 +1,14 @@
+@import '../abstracts/';
+
+body {
+  background-color: $background;
+}
+
+main {
+	background-color: $background;
+	color: $foreground;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+

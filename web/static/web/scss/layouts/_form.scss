@@ -1,0 +1,17 @@
+form {
+  display: flex;
+  flex-direction: column;
+  width: clamp(90%, 80%, 70%);
+  gap: 1rem;
+
+  & * {
+    font-size: clamp(1em, 1.3em, 1.5em);
+  }
+
+  & .field {
+    display: flex;
+    align-items: center;
+    margin: 0 1rem;
+    gap: 0.65rem;
+  }
+}

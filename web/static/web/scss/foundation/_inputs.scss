@@ -1,0 +1,67 @@
+@import "../abstracts";
+
+$avoided-input-fields: "checkbox", "file";
+
+input {
+  color: $foreground;
+  background-color: $background;
+  accent-color: $highlight;
+  caret-color: $highlight;
+
+  width: 100%;
+  border: 2px solid $background-dimm;
+  border-radius: 3px;
+  padding: 0.3rem;
+  outline: none;
+
+  transition: all 0.5s ease-in-out;
+
+  &:focus,
+  &:hover {
+    background-color: $background-dimm;
+    border: 2px dashed $highlight;
+  }
+
+  &::placeholder {
+    color: $foreground;
+    filter: brightness(0.6);
+  }
+
+  @each $field in $avoided-input-fields {
+    &:not([type="#{$field}"]) {
+      font-family: $monospaced;
+    }
+  }
+
+  &[type="email"]:invalid {
+    color: $error;
+    border-color: $error;
+  }
+
+  &[type="checkbox"] {
+    width: max-content;
+    transform: scale(1.4);
+    cursor: pointer;
+  }
+
+  &[type="submit"] {
+    width: 9ch;
+    margin-left: 1rem;
+    padding: 0.6rem 0.4rem;
+    border-radius: 4.5ch;
+    font-family: $title;
+    transition: all ease 0.5s;
+
+    &:hover,
+    &:focus {
+      color: $background;
+      background-color: $highlight;
+
+      border: 2px solid $highlight-dark;
+
+      box-shadow: 1px 1px 4px $background-darker;
+      transform: scale(1.05);
+      cursor: pointer;
+    }
+  }
+}
