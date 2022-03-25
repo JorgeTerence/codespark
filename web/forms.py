@@ -24,7 +24,7 @@ class LoginForm(ModelForm):
 
 
 class PostForm(ModelForm):
-    class meta:
+    class Meta:
         model = Post
         fields = ("title", "subject", "content")
         labels = {
