@@ -53,7 +53,7 @@ def login(request: HttpRequest):
             return render(request, "web/login.html", {"form": form})
 
     else:
-        return render(request, "web/login.html", {"form": LoginForm()})
+        return render(request, "web/login.html", {})
 
 
 def user(request: HttpRequest, username: str):

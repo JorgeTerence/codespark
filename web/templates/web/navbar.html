@@ -1,25 +1,39 @@
 {% load static %}
 <header>
-	<a href="{% url 'home' %}">
-		<abbr title="codespark">
-			<img
-				src="{% static 'web/assets/logo-braces.svg' %}"
-				alt="Logo Codespark"
-				id="logo"
-			/>
-		</abbr>
-	</a>
-	<nav>
-		<ul>
-			<li><a href="{% url 'home' %}">Início</a></li>
-			<li><a href="">Assuntos</a></li>
-			<li><a href="">Sobre</a></li>
-			<li><a href="">Aprenda</a></li>
-            {% if user.is_authenticated %}
-			<li><a href="{% url 'user' user.username %}">Conta</a></li>
-            {% else %}
-			<li><a href="{% url 'login' %}">Conta</a></li>
-            {% endif %}
-		</ul>
-	</nav>
+  <nav>
+    <a href="#">
+      <abbr title="codespark">
+        <img
+          class="logo"
+          src="{% static 'web/assets/logo-braces.svg' %}"
+          alt="Logo Codespark"
+        />
+      </abbr>
+    </a>
+    <div class="nav-item">
+      <a class="nav-link" href="{% url 'home' %}">Início</a>
+    </div>
+    <div class="nav-item">
+      <a class="nav-link" href="#">Post</a>
+      <ul class="dropdown-menu">
+        <li>Ciência da Computação</li>
+        <li>Desenvolvimento Web</li>
+        <li>Design, UI e UX</li>
+        <li>Mecânica e Elétrica</li>
+        <li>Sistemas Embarcados e Eletrônica</li>
+        <li>Artes visuais</li>
+        <li>Música e Escrita</li>
+        <li>Me ajude a escolher</li>
+      </ul>
+    </div>
+    {% if user.is_authenticated %}
+      <div class="nav-item">
+        <a class="nav-link" href="{% url 'user' user.username %}">Conta</a>
+      </div>
+    {% else %}
+      <div class="nav-item">
+        <a class="nav-link" href="{% url 'login' %}">Conta</a>
+      </div>
+    {% endif %}
+  </nav>
 </header>

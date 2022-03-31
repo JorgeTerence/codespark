@@ -4,43 +4,68 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  box-shadow: 0 1px 4px $background-darker ;
+}
 
-  & img#logo {
-    aspect-ratio: 40/23;
-    width: clamp(4rem, 5rem, 6rem);
+nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-item {
+  position: relative;
+
+  & > .nav-link:focus + .dropdown-menu {
+    opacity: 1;
+    transform: translateY(0.8rem);
   }
+}
 
-  & nav {
-    display: flex;
-    align-items: center;
+.nav-link {
+  color: $foreground;
+  background-color: transparent;
+  padding: 0.6rem 0.8rem;
+  font-size: 1.1em;
+  text-decoration: none;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: all 450ms ease-out;
 
-    & ul {
-      list-style-type: none;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
+  &:hover {
+    color: $background;
+    background-color: $highlight;
+  }
+}
 
-      & li {
-        color: $foreground;
-        border-radius: 1.2rem;
-        cursor: pointer;
-        transition: all 0.6s ease;
+.dropdown-menu {
+  opacity: 0;
+  position: absolute;
+  top: 0.5rem;
+  left: -0.5rem;
+  width: max-content;
+  padding: 0.7rem;
+  color: $foreground;
+  background-color: $background;
+  border: 1px solid rgba($foreground, 0.6);
+  border-radius: 0.3rem;
+  list-style-type: none;
+  transition: all 180ms ease-out;
 
-        & a {
-          color: $foreground;
-          padding: 0.6rem 0.8rem;
-          font-size: 1.1em;
-          text-decoration: none;
-          border-radius: 0.8rem;
-          transition: all 0.6s ease;
-        }
+  & li {
+    padding: 2px 4px;
+    border-radius: 6px;
+    margin-block: 2px;
+    cursor: default;
+    transition: background-color 400ms ease-out;
 
-        &:hover a {
-          color: $background;
-          background-color: $highlight;
-        }
-      }
+    &:hover {
+      background-color: $background-dimm;
     }
   }
+}
+
+.logo {
+  aspect-ratio: 40/23;
+  width: clamp(4rem, 5rem, 6rem);
 }

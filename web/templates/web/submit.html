@@ -1,0 +1,26 @@
+{% load static %}
+{% load sass_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% sass_src 'web/scss/main.scss' %}">
+    <title>Codespark | Post 🗒️</title>
+</head>
+<body>
+    {% include 'web/navbar.html' %}
+    <main>
+        <h1>Crie um post</h1>
+        {% include 'web/messages.html' with level="error" %}
+        <form method="post">
+          {% csrf_token %}
+          <div class="button-panel">
+            <button id="addMarkdown">+ MD &dArr;</button>
+            <button id="addCode">+ Code {}</button>
+          </div>
+          <input type="submit" value="Enviar" />
+        </form>
+    </main>
+    <script src="{% static 'web/js/submit.js' %}" defer></script>
+</body>
+</html>
