@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.http import HttpRequest
 from django.shortcuts import get_object_or_404, redirect, render
+from django.test import ignore_warnings
 
 from .forms import LoginForm, PostForm, RegisterForm
 from .models import Account, Post
@@ -89,8 +90,9 @@ def submit(request: HttpRequest):
             return render(request, "web/submit.html", {"form": form})
 
     else:
-        # TODO: Create submit.html
-        return render(request, "web/submit.html", {"form": PostForm()})
+        # md, code, images, videos, audio
+        context = {"form": PostForm(), "subjects": Post.get_subjects()}
+        return render(request, "web/submit.html", context)
 
 
 def post(request: HttpRequest, post_id: int):

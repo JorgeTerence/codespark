@@ -1,0 +1,26 @@
+{
+  "name": "codespark",
+  "version": "1.0.0",
+  "description": "A place for creative minds to share their tech skills",
+  "main": "manage.py",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JorgeTerence/codespark.git"
+  },
+  "author": "Jorge Terence",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JorgeTerence/codespark/issues"
+  },
+  "homepage": "https://github.com/JorgeTerence/codespark#readme",
+  "dependencies": {
+    "@tiptap/core": "^2.0.0-beta.174",
+    "@tiptap/starter-kit": "^2.0.0-beta.183"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5"
+  }
+}

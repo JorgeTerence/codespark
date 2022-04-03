@@ -10,30 +10,12 @@
         />
       </abbr>
     </a>
-    <div class="nav-item">
-      <a class="nav-link" href="{% url 'home' %}">Início</a>
-    </div>
-    <div class="nav-item">
-      <a class="nav-link" href="#">Post</a>
-      <ul class="dropdown-menu">
-        <li>Ciência da Computação</li>
-        <li>Desenvolvimento Web</li>
-        <li>Design, UI e UX</li>
-        <li>Mecânica e Elétrica</li>
-        <li>Sistemas Embarcados e Eletrônica</li>
-        <li>Artes visuais</li>
-        <li>Música e Escrita</li>
-        <li>Me ajude a escolher</li>
-      </ul>
-    </div>
+    <a href="{% url 'home' %}">Início</a>
+    <a href="#">Post</a>
     {% if user.is_authenticated %}
-      <div class="nav-item">
-        <a class="nav-link" href="{% url 'user' user.username %}">Conta</a>
-      </div>
+      <a href="{% url 'user' user.username %}">Conta</a>
     {% else %}
-      <div class="nav-item">
-        <a class="nav-link" href="{% url 'login' %}">Conta</a>
-      </div>
+      <a href="{% url 'login' %}">Conta</a>
     {% endif %}
   </nav>
 </header>

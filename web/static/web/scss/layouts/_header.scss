@@ -10,57 +10,20 @@ nav {
   display: flex;
   align-items: center;
   gap: 1rem;
-}
 
-.nav-item {
-  position: relative;
-
-  & > .nav-link:focus + .dropdown-menu {
-    opacity: 1;
-    transform: translateY(0.8rem);
-  }
-}
-
-.nav-link {
-  color: $foreground;
-  background-color: transparent;
-  padding: 0.6rem 0.8rem;
-  font-size: 1.1em;
-  text-decoration: none;
-  border: none;
-  border-radius: 1rem;
-  cursor: pointer;
-  transition: all 450ms ease-out;
-
-  &:hover {
-    color: $background;
-    background-color: $highlight;
-  }
-}
-
-.dropdown-menu {
-  opacity: 0;
-  position: absolute;
-  top: 0.5rem;
-  left: -0.5rem;
-  width: max-content;
-  padding: 0.7rem;
-  color: $foreground;
-  background-color: $background;
-  border: 1px solid rgba($foreground, 0.6);
-  border-radius: 0.3rem;
-  list-style-type: none;
-  transition: all 180ms ease-out;
-
-  & li {
-    padding: 2px 4px;
-    border-radius: 6px;
-    margin-block: 2px;
-    cursor: default;
-    transition: background-color 400ms ease-out;
+  & a {
+    color: $foreground;
+    background-color: transparent;
+    padding: 0.6rem 0.8rem;
+    font-size: 1.1em;
+    text-decoration: none;
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: all 450ms ease-out;
 
     &:hover {
-      background-color: $background-dimm;
+      color: $background;
+      background-color: $highlight;
     }
   }
 }

@@ -3,8 +3,11 @@ venv/
 .vscode
 __pycache__
 log.txt
+node_modules
 
 # Static files
 avatars/
 migrations/
 /static/
+.cache/
+dist/

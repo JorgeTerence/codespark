@@ -14,18 +14,15 @@ class Account(Model):
 
 class Post(Model):
     class Subject(TextChoices):
-        PY = "Py", _("Python")
-        JAVA = "Java", _("Java")
-        CSHARP = "C#", _("C#")
-        JS = "JS", _("Javascript")
-        PHP = "PHP", _("PHP")
-        MOBILE = "Mobile", _("Mobile")
-        INO = "Ino", _("Arduino")
-        DB = "DB", _("Base de Dados")
-        WEB = "WEB", _("Web Dev")
-        UI = "UI", _("UI / UX")
         CS = "CS", _("Ciência da Computação")
-        LX = "LX", _("GNU / Linux")
+        WB = "Web", _("Desenvolvimento Web")
+        DS = "Design", _("Design, UI e UX")
+        MC = "Mechanics", _("Mecânica e Elétrica")
+        EM = "Embeded", _("Sistemas Embarcados e Eletrônica")
+
+    @classmethod
+    def get_subjects(cls):
+        return [choice[1] for choice in cls.Subject.choices]
 
     author = ForeignKey(User, on_delete=CASCADE)
     title = CharField(max_length=127)
