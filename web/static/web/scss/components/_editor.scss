@@ -1,0 +1,19 @@
+@import "../abstracts/";
+
+.ProseMirror {
+  border: 3px solid $foreground;
+  border-radius: 5px;
+  padding: .5rem;
+  outline: 0 solid $background;
+  outline-offset: 0;
+  transition: outline 500ms ease;
+
+  & > * {
+    font-family: $sans;
+  }
+
+  &:active, &:focus {
+    outline: 2px solid $foreground;
+    outline-offset: 2px;
+  }
+}
