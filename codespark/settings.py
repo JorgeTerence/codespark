@@ -60,9 +60,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "codespark.wsgi.application"
 
-# sudo apt install libmysqlclient-dev
-# pip install mysqlclient
-
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",

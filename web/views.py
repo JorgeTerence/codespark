@@ -54,7 +54,7 @@ def login(request: HttpRequest):
             return render(request, "web/login.html", {"form": form})
 
     else:
-        return render(request, "web/login.html", {})
+        return render(request, "web/login.html", { 'form': LoginForm() })
 
 
 def user(request: HttpRequest, username: str):

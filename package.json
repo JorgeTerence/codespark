@@ -4,7 +4,8 @@
   "description": "A place for creative minds to share their tech skills",
   "main": "manage.py",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "parcel watch web/static/web/js/*.js web/static/web/scss/main.scss"
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,7 @@
     "@tiptap/starter-kit": "^2.0.0-beta.183"
   },
   "devDependencies": {
-    "parcel-bundler": "^1.12.5"
+    "parcel-bundler": "^1.12.5",
+    "sass": "^1.50.0"
   }
 }
