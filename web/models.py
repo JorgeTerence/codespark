@@ -20,13 +20,9 @@ class Post(Model):
         MC = "Mechanics", _("Mecânica e Elétrica")
         EM = "Embeded", _("Sistemas Embarcados e Eletrônica")
 
-    @classmethod
-    def get_subjects(cls):
-        return [choice[1] for choice in cls.Subject.choices]
-
     author = ForeignKey(User, on_delete=CASCADE)
     title = CharField(max_length=127)
-    content = TextField()
+    content = JSONField()
     votes = IntegerField(default=0)
     subject = CharField(
         max_length=31,

@@ -3,17 +3,20 @@
 .ProseMirror {
   border: 3px solid $foreground;
   border-radius: 5px;
-  padding: .5rem;
+  padding: 0.5rem;
   outline: 0 solid $background;
   outline-offset: 0;
   transition: outline 500ms ease;
   font-size: 0.75em;
+  white-space: pre-wrap;
+  word-break: break-all;
 
   & * {
     font-family: $sans;
   }
 
-  &:active, &:focus {
+  &:active,
+  &:focus {
     outline: 2px solid $foreground;
     outline-offset: 2px;
   }

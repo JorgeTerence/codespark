@@ -12,17 +12,15 @@
     <main>
       <h1>Crie um post</h1>
       {% include 'web/messages.html' with level="error" %}
-      <form method="post">
+      <form method="post" action="{% url 'submit' %}">
         {% csrf_token %}
         <select name="subject" id="subject">
           {% for subject in subjects %}
-            <option value="{{ subject }}">{{ subject }}</option>
+            <option value="{{ subject.0 }}">{{ subject.1 }}</option>
           {% endfor %}
         </select>
         <div class="editor"></div>
-        <!-- md, code, images, yt videos -->
-        <!-- https://developers.google.com/youtube/iframe_api_reference -->
-        <input type="submit" value="Enviar" id="submit" data-action="" />
+        <input type="submit" value="Enviar"/>
       </form>
     </main>
     <script src="{% static 'js/submit.js' %}"></script>

@@ -1,11 +1,11 @@
+import json
 from django.contrib import messages
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as django_login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from django.http import HttpRequest
+from django.http import HttpRequest, HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
-from django.test import ignore_warnings
 
 from .forms import LoginForm, PostForm, RegisterForm
 from .models import Account, Post
@@ -71,27 +71,22 @@ def home(request: HttpRequest):
 @login_required(redirect_field_name="login")
 def submit(request: HttpRequest):
     if request.method == "POST":
-        form = PostForm(request.POST)
+        # Check for possible errors
+        # redirect to post page
 
-        if form.is_valid():
-            post = Post(
-                author=request.user,
-                title=form.cleaned_data["title"],
-                subject=form.cleaned_data["subject"],
-                content=form.cleaned_data["content"],
-            )
+        data = json.loads(request.body)
 
-            post.save()
+        Post(
+            author=request.user,
+            title=data['title'],
+            subject=data['subject'],
+            content=data['content'],
+        ).save()
 
-            return redirect("post", post.id)
-
-        else:
-            messages.error(request, form.errors.as_text())
-            return render(request, "web/submit.html", {"form": form})
+        return HttpResponse("Success!")
 
     else:
-        # md, code, images, videos, audio
-        context = {"form": PostForm(), "subjects": Post.get_subjects()}
+        context = {"form": PostForm(), "subjects": Post.Subject.choices}
         return render(request, "web/submit.html", context)
 
 
