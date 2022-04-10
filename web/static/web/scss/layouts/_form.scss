@@ -8,10 +8,24 @@ form {
     font-size: clamp(1em, 1.3em, 1.5em);
   }
 
-  & .field {
+  .field {
     display: flex;
     align-items: center;
     margin: 0 1rem;
     gap: 0.65rem;
+  }
+
+  select {
+    color: $foreground;
+    background-color: $background;
+    border: 2px solid $background-dimm;
+    border-radius: 6px;
+    font-size: 1.2em;
+    padding: 4px;
+    width: max-content;
+
+    option {
+      font-size: 1em;
+    }
   }
 }

@@ -4,6 +4,7 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="{% sass_src 'web/scss/main.scss' %}" />
+    <link rel="shortcut icon" href="{% static 'web/assets/favicon.ico' %}" type="image/x-icon">
     <title>Codespark | Post 🗒️</title>
   </head>
   <body>
@@ -21,9 +22,9 @@
         <div class="editor"></div>
         <!-- md, code, images, yt videos -->
         <!-- https://developers.google.com/youtube/iframe_api_reference -->
-        <input type="submit" value="Enviar" />
+        <input type="submit" value="Enviar" id="submit" data-action="" />
       </form>
     </main>
-    <script type="module" src="{% static 'submit.js' %}"></script>
+    <script src="{% static 'js/submit.js' %}"></script>
   </body>
 </html>

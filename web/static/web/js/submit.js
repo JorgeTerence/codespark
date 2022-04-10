@@ -4,7 +4,9 @@ import StarterKit from '@tiptap/starter-kit';
 new Editor({
   element: document.querySelector(".editor"),
   extensions: [StarterKit],
-  autofocus: true,
   injectCSS: false,
-  content: "<h1>Compartilhe sua ideia! 💡<h1>",
+});
+
+document.getElementById("submit").addEventListener('click', () => {
+
 });
