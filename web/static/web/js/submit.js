@@ -1,6 +1,6 @@
 import { Editor } from "@tiptap/core";
 import StarterKit from "@tiptap/starter-kit";
-import Cookies from 'js-cookie';
+import Cookies from "js-cookie";
 
 const editor = new Editor({
   element: document.querySelector(".editor"),
@@ -25,7 +25,8 @@ form.addEventListener("submit", (e) => {
     method: "POST",
     body: JSON.stringify({ content, subject, title }),
     headers: { "X-CSRFToken": Cookies.get("csrftoken") },
+    redirect: "manual",
   })
-    .then((res) => console.log(res))
-    .catch((err) => console.log(err));
+    .then(res => res.text())
+    .then(url => window.location = url);
 });

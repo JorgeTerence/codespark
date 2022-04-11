@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
+from django.urls import reverse
 
 from .forms import LoginForm, PostForm, RegisterForm
 from .models import Account, Post
@@ -54,7 +55,7 @@ def login(request: HttpRequest):
             return render(request, "web/login.html", {"form": form})
 
     else:
-        return render(request, "web/login.html", { 'form': LoginForm() })
+        return render(request, "web/login.html", {"form": LoginForm()})
 
 
 def user(request: HttpRequest, username: str):
@@ -67,23 +68,24 @@ def home(request: HttpRequest):
     return render(request, "web/index.html", {})
 
 
-# TODO: Add a way for editing posts or at least append a note
+# TODO: Add a way for editing posts or append a note
+# TODO: Check for possible errors
+# FIXME: Block duplicate titles
 @login_required(redirect_field_name="login")
 def submit(request: HttpRequest):
     if request.method == "POST":
-        # Check for possible errors
-        # redirect to post page
-
         data = json.loads(request.body)
 
-        Post(
+        post = Post(
+            id=hash(data["title"]),
             author=request.user,
-            title=data['title'],
-            subject=data['subject'],
-            content=data['content'],
-        ).save()
-
-        return HttpResponse("Success!")
+            title=data["title"],
+            subject=data["subject"],
+            content=data["content"],
+        )
+        post.save()
+        
+        return HttpResponse(reverse("post", args=[post.id]))
 
     else:
         context = {"form": PostForm(), "subjects": Post.Subject.choices}
@@ -91,4 +93,5 @@ def submit(request: HttpRequest):
 
 
 def post(request: HttpRequest, post_id: int):
-    pass
+    post = get_object_or_404(Post, id=post_id)
+    return render(request, "web/post.html", {"post": post})
