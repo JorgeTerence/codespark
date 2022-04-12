@@ -15,17 +15,17 @@ const form = document.querySelector("form");
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  const editorJson = editor.getJSON();
-
-  const content = editorJson?.content;
+  const content = editor.getHTML();
   const subject = subjSelect.options.item(subjSelect.selectedIndex).value;
-  const title = content[0]?.content[0]?.text;
+  const title = editor.getJSON()?.content[0]?.content[0]?.text;
+
+  console.log({ content, subject, title });
 
   fetch(form.action, {
     method: "POST",
     body: JSON.stringify({ content, subject, title }),
     headers: { "X-CSRFToken": Cookies.get("csrftoken") },
-    redirect: "manual",
+    redirect: "follow",
   })
     .then(res => res.text())
     .then(url => window.location = url);

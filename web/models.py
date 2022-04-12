@@ -22,7 +22,7 @@ class Post(Model):
 
     author = ForeignKey(User, on_delete=CASCADE)
     title = CharField(max_length=127)
-    content = JSONField()
+    content = TextField()
     votes = IntegerField(default=0)
     subject = CharField(
         max_length=31,

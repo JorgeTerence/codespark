@@ -6,6 +6,7 @@ const editorElement = document.querySelector(".postContent");
 console.log(editorElement.dataset.postContent);
 
 new Editor({
+  content: editorElement.dataset.postContent,
   element: editorElement,
   extensions: [StarterKit],
   editable: false,

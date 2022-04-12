@@ -70,6 +70,7 @@ def home(request: HttpRequest):
 
 # TODO: Add a way for editing posts or append a note
 # TODO: Check for possible errors
+# IDEA: use a hash of the title instead of the id for the url
 # FIXME: Block duplicate titles
 @login_required(redirect_field_name="login")
 def submit(request: HttpRequest):
@@ -77,14 +78,13 @@ def submit(request: HttpRequest):
         data = json.loads(request.body)
 
         post = Post(
-            id=hash(data["title"]),
             author=request.user,
             title=data["title"],
             subject=data["subject"],
             content=data["content"],
         )
         post.save()
-        
+
         return HttpResponse(reverse("post", args=[post.id]))
 
     else:
