@@ -65,7 +65,7 @@ def user(request: HttpRequest, username: str):
 
 # TODO: Feed of most recent posts
 def home(request: HttpRequest):
-    return render(request, "web/index.html", {})
+    return render(request, "web/index.html", {"posts": Post.objects.all()})
 
 
 # TODO: Add a way for editing posts or append a note
@@ -75,17 +75,18 @@ def home(request: HttpRequest):
 @login_required(redirect_field_name="login")
 def submit(request: HttpRequest):
     if request.method == "POST":
-        data = json.loads(request.body)
+        data = json.loads(request.body.decode())
 
         post = Post(
             author=request.user,
             title=data["title"],
             subject=data["subject"],
             content=data["content"],
+            peek=data["peek"],
         )
         post.save()
 
-        return HttpResponse(reverse("post", args=[post.id]))
+        return redirect("post", post.id)
 
     else:
         context = {"form": PostForm(), "subjects": Post.Subject.choices}

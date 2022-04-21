@@ -23,6 +23,7 @@ class Post(Model):
     author = ForeignKey(User, on_delete=CASCADE)
     title = CharField(max_length=127)
     content = TextField()
+    peek = TextField(null=True)
     votes = IntegerField(default=0)
     subject = CharField(
         max_length=31,

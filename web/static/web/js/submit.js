@@ -10,6 +10,7 @@ const editor = new Editor({
 
 const subjSelect = document.getElementsByName("subject").item(0);
 const form = document.querySelector("form");
+// const submitBtn
 
 // TODO: check for a heading before sending and use that as a title
 form.addEventListener("submit", (e) => {
@@ -18,15 +19,13 @@ form.addEventListener("submit", (e) => {
   const content = editor.getHTML();
   const subject = subjSelect.options.item(subjSelect.selectedIndex).value;
   const title = editor.getJSON()?.content[0]?.content[0]?.text;
+  const peek = editor.getJSON()?.content[1]?.content[0]?.text;
 
-  console.log({ content, subject, title });
+  // TODO: Check for undefined
 
   fetch(form.action, {
     method: "POST",
-    body: JSON.stringify({ content, subject, title }),
+    body: JSON.stringify({ content, subject, title, peek }),
     headers: { "X-CSRFToken": Cookies.get("csrftoken") },
-    redirect: "follow",
-  })
-    .then(res => res.text())
-    .then(url => window.location = url);
+  }).then((res) => (window.location.href = res.url));
 });
