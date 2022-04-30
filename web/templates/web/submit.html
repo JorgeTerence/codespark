@@ -4,7 +4,7 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="{% sass_src 'web/scss/main.scss' %}" />
-    <link rel="shortcut icon" href="{% static 'web/assets/favicon.ico' %}" type="image/x-icon">
+    <link rel="shortcut icon" href="{% static 'web/assets/favicon.ico' %}" />
     <title>Codespark | Submit 🗒️</title>
   </head>
   <body>
@@ -12,15 +12,18 @@
     <main>
       <h1>Crie um post</h1>
       {% include 'web/messages.html' with level="error" %}
+      <div class="flex">
+        <button class="new-code">bloco de código</button>
+      </div>
       <form method="post" action="{% url 'submit' %}">
         {% csrf_token %}
         <select name="subject" id="subject">
           {% for subject in subjects %}
-            <option value="{{ subject.0 }}">{{ subject.1 }}</option>
+          <option value="{{ subject.0 }}">{{ subject.1 }}</option>
           {% endfor %}
         </select>
         <div class="editor"></div>
-        <input type="submit" value="Enviar"/>
+        <input type="submit" value="Enviar" />
       </form>
     </main>
     <script src="{% static 'js/submit.js' %}"></script>

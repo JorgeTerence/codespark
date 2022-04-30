@@ -19,9 +19,20 @@
   "homepage": "https://github.com/JorgeTerence/codespark#readme",
   "dependencies": {
     "@tiptap/core": "^2.0.0-beta.174",
+    "@tiptap/extension-blockquote": "^2.0.0-beta.26",
+    "@tiptap/extension-bullet-list": "^2.0.0-beta.26",
+    "@tiptap/extension-code-block": "^2.0.0-beta.37",
+    "@tiptap/extension-code-block-lowlight": "^2.0.0-beta.68",
+    "@tiptap/extension-document": "^2.0.0-beta.15",
+    "@tiptap/extension-hard-break": "^2.0.0-beta.30",
+    "@tiptap/extension-list-item": "^2.0.0-beta.20",
     "@tiptap/starter-kit": "^2.0.0-beta.183",
     "coo": "^1.0.0",
-    "js-cookie": "^3.0.1"
+    "high": "^0.0.4",
+    "highlight.js": "^11.5.1",
+    "js-cookie": "^3.0.1",
+    "low": "^1.1.72",
+    "lowlight": "^2.6.1"
   },
   "devDependencies": {
     "parcel-bundler": "^1.12.5",

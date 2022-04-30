@@ -10,7 +10,11 @@ const editor = new Editor({
 
 const subjSelect = document.getElementsByName("subject").item(0);
 const form = document.querySelector("form");
-// const submitBtn
+const codeBtn = document.querySelector(".new-code");
+
+codeBtn.addEventListener("click", (e) =>
+  editor.chain().focus().toggleCodeBlock({ language: "javascript" }).run()
+);
 
 // TODO: check for a heading before sending and use that as a title
 form.addEventListener("submit", (e) => {
