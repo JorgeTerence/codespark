@@ -1,27 +1,24 @@
+{% extends 'web/base.html' %}
 {% load static %}
-{% load sass_tags %}
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="{% sass_src 'web/scss/main.scss' %}">
-	<title>Codespark | Registro</title>
-</head>
-<body>
-	{% include 'web/navbar.html' %}
-	<main>
-		<h1>Registro de Usuário</h1>
-		<hr />
-		{% include 'web/messages.html' with level="error" %}
-		<form action="{% url 'register' %}" method="post" enctype="multipart/form-data">
-			{% csrf_token %}
-			{% for field in form %}
-			<div class="field">{{ field.label_tag }} {{ field }}</div>
-			{% endfor %}
-			<input type="submit" value="Enviar" />
-		</form>
-	</main>
-	<script src="{% static 'web/js/register.js' %}" defer></script>
-</body>
-</html>
+{% block title %}Codespark | Registro 👤{% endblock %}
+{% block scripts %}
+  <script defer src="{% static 'web/js/register.js' %}" defer></script>
+{% endblock %}
+{% block content %}
+<main>
+  <h1>Registro de Usuário</h1>
+  <hr />
+  {% include 'web/messages.html' with level="error" %}
+  <form
+    action="{% url 'register' %}"
+    method="post"
+    enctype="multipart/form-data"
+  >
+    {% csrf_token %}
+    {% for field in form %}
+      <div class="field">{{ field.label_tag }} {{ field }}</div>
+    {% endfor %}
+    <input type="submit" value="Enviar" />
+  </form>
+</main>
+{% endblock %}

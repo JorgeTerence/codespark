@@ -1,29 +1,19 @@
-{% load static %} {% load sass_tags %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="{% sass_src 'web/scss/main.scss' %}" />
-    <link rel="shortcut icon" href="{% static 'web/assets/favicon.ico' %}" />
-    <title>Codespark ✨</title>
-  </head>
-  <body>
-    {% include 'web/navbar.html' %}
-    <main>
-      <h1>Página de Início</h1>
-      <section class="posts">
-        {% for post in posts %}
-        <a class="button" href="{% url 'post' post.id %}">
-          <div class="post-card">
-            <header>
-              <h3 class="post-title">{{ post.title }}</h3>
-              <span class="post-subject">{{ post.subject }}</span>
-            </header>
-            <p class="post-peek">{{ post.peek }}</p>
-          </div>
-        </a>
-        {% endfor %}
-      </section>
-    </main>
-  </body>
-</html>
+{% extends 'web/base.html' %}
+{% block content %}
+<main>
+  <h1>Página de Início</h1>
+  <section class="posts">
+    {% for post in posts %}
+    <a class="button" href="{% url 'post' post.id %}">
+      <div class="post-card">
+        <header>
+          <h3 class="post-title">{{ post.title }}</h3>
+          <span class="post-subject">{{ post.subject }}</span>
+        </header>
+        <p class="post-peek">{{ post.peek }}</p>
+      </div>
+    </a>
+    {% endfor %}
+  </section>
+</main>
+{% endblock %}

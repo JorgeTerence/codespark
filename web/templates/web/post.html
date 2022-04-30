@@ -1,19 +1,13 @@
-{% load static %} {% load sass_tags %}
-<!DOCTYPE html>
-<html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="{% sass_src 'web/scss/main.scss' %}" />
-    <link rel="shortcut icon" href="{% static 'web/assets/favicon.ico' %}" type="image/x-icon">
-    <title>Codespark ✨</title>
-  </head>
-  <body>
-    {% include 'web/navbar.html' %}
-    <main>
-      <h1>{{ post.title }}</h1>
-      <h2 class="subject">{{ post.subject }}</h2>
-      <div class="postContent" data-post-content="{{ post.content }}"></div>
-    </main>
-    <script src="{% static 'js/loadPost.js' %}"></script>
-  </body>
-</html>
+{% extends 'web/base.html' %}
+{% load static %}
+{% block title %}Codespark | {% endblock %}
+{% block scripts %}
+  <script defer src="{% static 'js/loadPost.js' %}"></script>
+{% endblock %}
+{% block content %}
+<main>
+  <h1>{{ post.title }}</h1>
+  <h2 class="subject">{{ post.subject }}</h2>
+  <div class="postContent" data-post-content="{{ post.content }}"></div>
+</main>
+{% endblock %}
