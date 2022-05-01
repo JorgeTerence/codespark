@@ -72,6 +72,7 @@ def home(request: HttpRequest):
 # TODO: Check for possible errors
 # IDEA: use a hash of the title instead of the id for the url
 # FIXME: Block duplicate titles
+# FIXME: MariaDB doesn't accept emojis (can't have emojis on post)
 @login_required(redirect_field_name="login")
 def submit(request: HttpRequest):
     if request.method == "POST":

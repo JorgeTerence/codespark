@@ -12,18 +12,20 @@ const subjSelect = document.getElementsByName("subject").item(0);
 const form = document.querySelector("form");
 const codeBtn = document.querySelector(".new-code");
 
-codeBtn.addEventListener("click", (e) =>
-  editor.chain().focus().toggleCodeBlock({ language: "javascript" }).run()
+codeBtn.addEventListener("click", () =>
+  editor.chain().focus().toggleCodeBlock().run()
 );
 
 // TODO: check for a heading before sending and use that as a title
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
+  const editorJSONConent = editor.getJSON()?.content;
+
   const content = editor.getHTML();
   const subject = subjSelect.options.item(subjSelect.selectedIndex).value;
-  const title = editor.getJSON()?.content[0]?.content[0]?.text;
-  const peek = editor.getJSON()?.content[1]?.content[0]?.text;
+  const title = editorJSONConent[0]?.content[0]?.text;
+  const peek = editorJSONConent[1]?.content[0]?.text;
 
   // TODO: Check for undefined
 

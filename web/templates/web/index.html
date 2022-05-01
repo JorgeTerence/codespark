@@ -1,18 +1,20 @@
 {% extends 'web/base.html' %}
 {% block content %}
 <main>
-  <h1>Página de Início</h1>
   <section class="posts">
     {% for post in posts %}
-    <a class="button" href="{% url 'post' post.id %}">
       <div class="post-card">
         <header>
-          <h3 class="post-title">{{ post.title }}</h3>
-          <span class="post-subject">{{ post.subject }}</span>
+          <div>
+            <span class="subject">{{ post.subject }}</span>
+            {% with author=post.author.username %}
+            <span>By <a href="{% url 'user' author %}">{{ author }}</a></span>
+            {% endwith %}
+          </div>
+          <h3>{{ post.title }}</h3>
         </header>
-        <p class="post-peek">{{ post.peek }}</p>
+        <p>{{ post.peek|truncatewords:16 }}</p>
       </div>
-    </a>
     {% endfor %}
   </section>
 </main>
