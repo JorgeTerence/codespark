@@ -25,3 +25,19 @@ Codespark is an social network for students around the subjects of computer scie
 ## Test on your local machine :computer:
 
 Check out [INSTALL.md](INSTALL.md) for details.
+
+## TODO
+
+### Code
+- [] Write tests
+- [] Purge unused dependencies
+- [] Fine tune color scheme
+
+### Functionallity
+- [x] Accounts
+- [] Account info
+- [] Editor accounts
+- [x] Posts
+- [] Comments
+- [] Share
+- [] Editor formatting
