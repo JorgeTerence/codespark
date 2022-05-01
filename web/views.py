@@ -100,10 +100,7 @@ def post(request: HttpRequest, post_id: int):
 
 def vote(request: HttpRequest, post_id: int, choice: int):
     post = get_object_or_404(Post, id=post_id)
-    if choice > 0:
-        post.votes += 1
-    elif choice < 0:
-        post.votes -= 1
-    else:
-        return HttpResponse("What do you whant me to do >:(")  # Return troll page
-    return HttpResponse(True)
+    post.votes += 1 if choice else -1
+    post.save()
+    
+    return HttpResponse(post.votes)

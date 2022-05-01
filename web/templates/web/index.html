@@ -1,15 +1,23 @@
 {% extends 'web/base.html' %}
+{% load static %}
+{% block scripts %}
+<script defer src="{% static 'js/vote.js' %}"></script>
+{% endblock %}
 {% block content %}
 <main>
   <section class="posts">
+    {% csrf_token %}
     {% for post in posts %}
       <div class="post-card">
         <header>
-          <div>
+          <div class="flex">
             <span class="subject">{{ post.subject }}</span>
             {% with author=post.author.username %}
             <span>By <a href="{% url 'user' author %}">{{ author }}</a></span>
             {% endwith %}
+            <button class="material-symbols-rounded btn-vote" data-vote-url="{% url 'vote' post.id 1 %}">thumb_up</button>
+            <button class="material-symbols-rounded btn-vote" data-vote-url="{% url 'vote' post.id 0 %}">thumb_down</button>
+            <span class="votes">{{ post.votes }}</span>
           </div>
           <h3>{{ post.title }}</h3>
         </header>

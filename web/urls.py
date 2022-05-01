@@ -8,6 +8,6 @@ urlpatterns = [
     path("login/", views.login, name="login"),
     path("submit/", views.submit, name="submit"),
     path("post/<int:post_id>/", views.post, name="post"),
-    path("vote/<int:post_id>/<int:choice>", views.vote, name="vote"),
-    path("/", views.home, name="home"),
+    path("vote/<int:post_id>/<int:choice>/", views.vote, name="vote"),
+    path("", views.home, name="home"),
 ]

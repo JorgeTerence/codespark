@@ -26,10 +26,6 @@
     span {
       display: inline-block;
     }
-
-    > *:not(:last-child) {
-      margin-bottom: 6px;
-    }
   }
 
   p {
@@ -41,5 +37,17 @@
     margin-right: 0.4rem;
     background-color: $background-dimm;
     border-radius: $rd;
+  }
+
+  button.material-symbols-rounded {
+    color: rgba($foreground, 0.8);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: color 400ms;
+
+    &:hover {
+      color: $foreground;
+    }
   }
 }

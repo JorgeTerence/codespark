@@ -21,3 +21,13 @@ hr {
 	color: var(--dimm);
 	margin-bottom: 1rem;
 }
+
+.flex {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.column {
+  flex-direction: column;
+}

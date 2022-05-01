@@ -26,6 +26,7 @@ form.addEventListener("submit", (e) => {
   const subject = subjSelect.options.item(subjSelect.selectedIndex).value;
   const title = editorJSONConent[0]?.content[0]?.text;
   const peek = editorJSONConent[1]?.content[0]?.text;
+  // Something goes wrong if there's an emoji or if there's an empty paragraph at the beggining
 
   // TODO: Check for undefined
 
