@@ -63,7 +63,6 @@ def user(request: HttpRequest, username: str):
     return render(request, "web/user.html", {"user": user})
 
 
-# TODO: Feed of most recent posts
 def home(request: HttpRequest):
     return render(request, "web/index.html", {"posts": Post.objects.all()})
 
@@ -97,3 +96,14 @@ def submit(request: HttpRequest):
 def post(request: HttpRequest, post_id: int):
     post = get_object_or_404(Post, id=post_id)
     return render(request, "web/post.html", {"post": post})
+
+
+def vote(request: HttpRequest, post_id: int, choice: int):
+    post = get_object_or_404(Post, id=post_id)
+    if choice > 0:
+        post.votes += 1
+    elif choice < 0:
+        post.votes -= 1
+    else:
+        return HttpResponse("What do you whant me to do >:(")  # Return troll page
+    return HttpResponse(True)
