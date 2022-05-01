@@ -18,7 +18,6 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "sass_processor",
     "web",
 ]
 
@@ -35,10 +34,7 @@ MIDDLEWARE = [
 STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
-    "sass_processor.finders.CssFinder",
 ]
-
-SASS_PROCESSOR_AUTO_INCLUDE = False
 
 ROOT_URLCONF = "codespark.urls"
 
