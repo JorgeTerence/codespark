@@ -4,7 +4,7 @@
 
 ## Clone the repository
 
-```bash
+```sh
 git clone https://github.com/JorgeTerence/codespark
 ```
 
@@ -37,7 +37,7 @@ export CODESPARK_SECRET_KEY='very_long_hash'
 # config.fish
 set -gx DJANGO_MYSQL_USER 'django'
 set -gx DJANGO_MYSQL_PASSWORD 'strong_password'
-set -gx CODESPARK_SECRET_KEY 'lkfbrjb3455grfgv33riugiu'
+set -gx CODESPARK_SECRET_KEY 'very_long_hash'
 ```
 
 **\*Note:** you can go into `settings.py` and configure the database as you please. Consider checking out the official documentation: https://docs.djangoproject.com/en/4.0/ref/databases/

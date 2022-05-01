@@ -8,7 +8,6 @@
         <abbr title="Editor verificado">🗒</abbr>
       {% endif %}
     </h1>
-    {% endif %}
     <img
       {% if user.account.avatar %}
         src="{{ user.profile.path }}"
@@ -18,9 +17,7 @@
       alt="Foto de perfil de {{ user.username }}"
       id="avatar"
     />
-    {% comment %}
-      If user.username == current_user.username: when hover the avatar, show tip for editing account info
-    {% endcomment %}
+    {# If logged in user == page use -> hover the avatar -> show tip for editing account #}
     <p id="bio">
       {% if user.bio %}
         {{ user.bio }}
